@@ -2,178 +2,209 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
-  :root {
-    --big-name-gradient-start: #ff4500;
-    --big-name-gradient-end: #ff8c00;
-    --layout-max-width: 80rem;
-    --header-height: 4rem;
-    --primary-rose: 346.8 77.2% 49.8%;
-    --primary-rose-foreground: 355.7 100% 97.3%;
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --big-name-gradient-start: #ffc593;
-    --big-name-gradient-end: #bc7198;
-    --background: black;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --primary-rose: 346.8 77.2% 49.8%;
-    --primary-rose-foreground: 355.7 100% 97.3%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-  }
+     :root {
+        --big-name-gradient-start: #ff4500;
+        --big-name-gradient-end: #ff8c00;
+        --layout-max-width: 80rem;
+        --header-height: 4rem;
+        --primary-rose: 346.8 77.2% 49.8%;
+        --primary-rose-foreground: 355.7 100% 97.3%;
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 222.2 84% 4.9%;
+        --radius: 0.5rem;
+    }
+    .dark {
+        --big-name-gradient-start: #ffc593;
+        --big-name-gradient-end: #bc7198;
+        --background: black;
+        --foreground: 210 40% 98%;
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+        --primary-rose: 346.8 77.2% 49.8%;
+        --primary-rose-foreground: 355.7 100% 97.3%;
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
+    }
 }
 
 @layer base {
-  html {
-    @apply w-full;
-  }
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  .big_word_name {
-    @apply text-[3.7vw] font-bold text-center tracking-wide;
-    &:dark {
+    html {
+        @apply w-full;
     }
-    background: linear-gradient(
-      90deg,
-      var(--big-name-gradient-start) 0%,
-      var(--big-name-gradient-start) 100%
-    );
-    -webkit-background-clip: text;
-    color: transparent;
-  }
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+    .big_word_name {
+        @apply text-[3.7vw] font-bold text-center tracking-wide;
+        &:dark {}
+        background: linear-gradient( 90deg, var(--big-name-gradient-start) 0%, var(--big-name-gradient-start) 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
 }
 
 @layer components {
-  .circle__wrapper {
-    @apply absolute w-full h-full z-[-1] top-0 left-0 opacity-60 origin-top;
-    & div {
-      @apply absolute w-[34rem] h-[34rem] rounded-full bg-red-600 top-0;
-      /* animation: hero-circle-animation infinite 11s linear 0ms alternate-reverse normal; */
-      /* animation: hero-circle-animation 2s infinite; */
-      animation-name: hero-circle-animation;
-      animation-duration: 4s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      animation-direction: alternate-reverse;
-      filter: blur(14rem);
+    /* .fade-in {
+        animation-name: line-fade-in;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-fill-mode: backwards;
+    } */
+    .circle__wrapper {
+        @apply absolute w-full h-full z-[-1] top-0 left-0 opacity-60 origin-top;
+        & div {
+            @apply absolute w-[34rem] h-[34rem] rounded-full bg-red-600 top-0;
+            /* animation: hero-circle-animation infinite 11s linear 0ms alternate-reverse normal; */
+            /* animation: hero-circle-animation 2s infinite; */
+            animation-name: hero-circle-animation;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: alternate-reverse;
+            filter: blur(14rem);
+        }
     }
-  }
-
-  .border-dash-bottom {
-    @apply relative;
-    &::before {
-      @apply absolute opacity-60 px-0 w-full bottom-0 border-dashed border-t left-0 border-zinc-600;
-      content: "";
-      /* animation: moving-dash 4s infinite; */
+    .border-dash-bottom {
+        @apply relative;
+        &::before {
+            @apply absolute opacity-60 px-0 w-full bottom-0 border-dashed border-t left-0 border-zinc-400;
+            animation-name: moving-dash;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+            animation-direction: normal;
+            animation-fill-mode: backwards;
+            content: "";
+            /* animation: moving-dash 4s infinite; */
+        }
     }
-  }
-  .all-unset {
-    all: unset;
-  }
-  .border-dash-top {
-    @apply relative;
-    /* animation: moving-dash 4s infinite; */
-    &::after {
-      @apply absolute opacity-60 px-0 w-full top-0 border-dashed border-t left-0 border-zinc-600;
-      content: "";
-      /* animation: moving-dash 4s infinite; */
+    .all-unset {
+        all: unset;
     }
-  }
-  .border-dash-left {
-    @apply absolute h-full top-0 left-0 bottom-0 w-[1px];
-    &::before {
-      @apply absolute opacity-60 w-full h-full m-auto top-0 left-[16vw] border-dashed border-l border-zinc-600;
-      content: "";
-      /* animation: moving-dash 4s infinite; */
+    .border-dash-top {
+        @apply relative;
+        /* animation: moving-dash 4s infinite; */
+        &::after {
+            @apply absolute opacity-60 px-0 w-full top-0 border-dashed border-t left-0 border-zinc-400;
+            animation-name: moving-dash;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+            animation-direction: normal;
+            animation-fill-mode: backwards;
+            content: "";
+            /* animation: moving-dash 4s infinite; */
+        }
     }
-  }
-  .border-dash-right {
-    @apply absolute h-full top-0 bottom-0 right-0 w-[1px];
-    &::after {
-      @apply absolute opacity-60 w-full h-full m-auto top-0 right-[16vw] border-dashed border-r border-zinc-600;
-      content: "";
-      /* animation: moving-dash 4s infinite; */
+    .border-dash-left {
+        @apply absolute h-full top-0 left-0 bottom-0 w-[1px];
+        &::before {
+            @apply absolute opacity-60 w-full h-full m-auto top-0 left-[16vw] border-dashed border-l border-zinc-600;
+            animation-name: moving-down-dash;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+            animation-direction: normal;
+            animation-fill-mode: backwards;
+            content: "";
+            /* animation: moving-dash 4s infinite; */
+        }
     }
-  }
+    .border-dash-right {
+        @apply absolute h-full top-0 bottom-0 right-0 w-[1px];
+        &::after {
+            @apply absolute opacity-60 w-full h-full m-auto top-0 right-[16vw] border-dashed border-r border-zinc-600;
+            content: "";
+            animation-name: moving-down-dash;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+            animation-direction: normal;
+            animation-fill-mode: backwards;
+            /* animation: moving-dash 4s infinite; */
+        }
+    }
 }
 
 @keyframes moving-dash {
-  0% {
-    /* 0% {
-      box-shadow: 0 0 10px 5px white, 0 0 20px 10px white, 0 0 30px 15px white, 0 0 40px 20px white, 0 0 50px 25px white;
+    0% {
+        width: 0%;
+        opacity: 0;
     }
     100% {
-      box-shadow: 0 0 10px 5px white, 0 0 20px 10px white, 0 0 30px 15px white, 0 0 40px 20px white, 0 0 50px 25px transparent;
-    } */
-    border-top-color: var(--accent);
-  }
-  25% {
-    border-right-color: var(--accent);
-  }
-  50% {
-    border-bottom-color: var(--accent);
-  }
-  75% {
-    border-left-color: var(--accent);
-  }
-  100% {
-    border-top-left: var(--accent);
-  }
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes moving-down-dash {
+    0% {
+        height: 0%;
+        opacity: 0;
+    }
+    100% {
+        height: 100%;
+        opacity: 1;
+    }
 }
 
 @keyframes hero-circle-animation {
-  0% {
-    transform: rotate(-20deg) translateX(20%);
-  }
-  25% {
-    transform: skew(-15deg, -15deg) rotate(80deg) translateX(30%);
-  }
-  50% {
-    transform: rotate(180deg) translateX(25%);
-  }
-  75% {
-    transform: skew(15deg, 15deg) rotate(240deg) translateX(15%);
-  }
-  100% {
-    transform: rotate(340deg) translateX(20%);
-  }
+    0% {
+        transform: rotate(-20deg) translateX(20%);
+    }
+    25% {
+        transform: skew(-15deg, -15deg) rotate(80deg) translateX(30%);
+    }
+    50% {
+        transform: rotate(180deg) translateX(25%);
+    }
+    75% {
+        transform: skew(15deg, 15deg) rotate(240deg) translateX(15%);
+    }
+    100% {
+        transform: rotate(340deg) translateX(20%);
+    }
 }
+
+
+/* @keyframes line-fade-in {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+} */

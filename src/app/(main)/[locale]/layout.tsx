@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "@mantine/core/styles.css";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layouts/header";
 import Footer from "@/components/layouts/footer";
 import { NextIntlClientProvider, useMessages } from "next-intl";
-import { useThemeStore } from "@/lib/stores/useThemeStore";
 import { unstable_setRequestLocale } from "next-intl/server";
+
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -34,16 +36,21 @@ export default function RootLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <html suppressHydrationWarning lang={locale}>
-        <body className={cn(" min-screen", inter.className)}>
+        <head>
+          <ColorSchemeScript />
+        </head>
+        <body className={cn(" min-screen dark:bg-black bg-white", inter.className)}>
           <ThemeProvider
             attribute="class"
             defaultTheme={"dark"}
             enableSystem={false}
             // disableTransitionOnChange
           >
-            <Header />
-            {children}
-            <Footer />
+            <MantineProvider >
+              <Header />
+              {children}
+              <Footer />
+            </MantineProvider>
           </ThemeProvider>
         </body>
       </html>

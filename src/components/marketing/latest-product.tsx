@@ -1,5 +1,16 @@
+"use client";
+
+import {
+  Button,
+  Card,
+  CardSection,
+  Group,
+  Image,
+  Text,
+  Badge,
+} from "@mantine/core";
+import { HashIcon } from "lucide-react";
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 type Props = {};
 
@@ -7,13 +18,14 @@ const list = [
   {
     title: "Product 1",
     image: "https://via.placeholder.com/150",
+    status: "sold",
     Contributors: [
       {
-        name: "John Doe",
+        name: "John Doe - Developer",
         link: "https://www.google.com",
       },
       {
-        name: "Jane Doe",
+        name: "John Doe - BA + Designer",
         link: "https://www.google.com",
       },
     ],
@@ -23,25 +35,11 @@ const list = [
     image: "https://via.placeholder.com/150",
     Contributors: [
       {
-        name: "John Doe",
+        name: "John Doe - Developer",
         link: "https://www.google.com",
       },
       {
-        name: "Jane Doe",
-        link: "https://www.google.com",
-      },
-    ],
-  },
-  {
-    title: "Product 1",
-    image: "https://via.placeholder.com/150",
-    Contributors: [
-      {
-        name: "John Doe",
-        link: "https://www.google.com",
-      },
-      {
-        name: "Jane Doe",
+        name: "John Doe - BA + Designer",
         link: "https://www.google.com",
       },
     ],
@@ -51,11 +49,25 @@ const list = [
     image: "https://via.placeholder.com/150",
     Contributors: [
       {
-        name: "John Doe",
+        name: "John Doe - Developer",
         link: "https://www.google.com",
       },
       {
-        name: "Jane Doe",
+        name: "John Doe - BA + Designer",
+        link: "https://www.google.com",
+      },
+    ],
+  },
+  {
+    title: "Product 1",
+    image: "https://via.placeholder.com/150",
+    Contributors: [
+      {
+        name: "John Doe - Developer",
+        link: "https://www.google.com",
+      },
+      {
+        name: "John Doe - BA + Designer",
         link: "https://www.google.com",
       },
     ],
@@ -70,15 +82,42 @@ const LatestProduct = (props: Props) => {
       <div className="  grid-rows-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8  overflow-hidden">
         {list.map((item) => (
           <Card key={item.title} className="snap-center">
-            <CardHeader>
-              <CardTitle>Latest products</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col">
-                <img src={item.image} alt={item.title} />
-                <h5>{item.title}</h5>
-              </div>
-            </CardContent>
+            <CardSection>
+              <Image src={item.image} height="10vw" width="full" />
+            </CardSection>
+            <Group justify="space-between" mt="md" mb="xs">
+              <Text fw={600} fz="lg">
+                {item.title}
+              </Text>
+            </Group>
+            {/* BODY */}
+
+            <Group gap={"xs"} mt="xs">
+              <Text size="sm" fz="xs">
+                Contributors:
+              </Text>
+            </Group>
+            {item.Contributors.map((v) => {
+              return (
+                <Group gap={"xs"} mt="xs">
+                  <Badge
+                    leftSection={<HashIcon size={12} />}
+                    key={v.name}
+                    color="red"
+                    className="hover:cursor-pointer text-xs"
+                    onClick={() => {
+                      window.open(v.link, "_blank");
+                    }}
+                  >
+                    {v.name}
+                  </Badge>
+                </Group>
+              );
+            })}
+
+            <Button color='red' fullWidth mt="md" radius="md">
+              View demo
+            </Button>
           </Card>
         ))}
       </div>
